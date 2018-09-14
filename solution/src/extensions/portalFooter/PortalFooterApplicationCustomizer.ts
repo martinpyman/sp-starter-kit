@@ -201,7 +201,7 @@ export default class PortalFooterApplicationCustomizer
   private async _renderPlaceHolders(): Promise<void> {
 
     // check if the application customizer has already been rendered
-    if (!PortalFooterApplicationCustomizer._bottomPlaceholder) {
+    if (!PortalFooterApplicationCustomizer._bottomPlaceholder || PortalFooterApplicationCustomizer._bottomPlaceholder.isDisposed) {
       // create a DOM element in the bottom placeholder for the application customizer to render
       PortalFooterApplicationCustomizer._bottomPlaceholder = this.context.placeholderProvider
         .tryCreateContent(PlaceholderName.Bottom, { onDispose: this._handleDispose });
